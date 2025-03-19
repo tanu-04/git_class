@@ -1,0 +1,161 @@
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+
+.resume-container {
+  width: 80%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+header .name {
+  flex: 1;
+}
+
+header h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+header p {
+  font-size: 18px;
+  color: #666;
+}
+
+header .contact-info {
+  text-align: right;
+  flex: 1;
+}
+
+header .contact-info p {
+  margin-bottom: 5px;
+}
+
+/* Sticky positioning for the contact info */
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Section styles */
+section {
+  margin-bottom: 20px;
+}
+
+section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+section p {
+  font-size: 16px;
+  color: #555;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Experience section */
+.job {
+  margin-bottom: 15px;
+}
+
+.job h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.job .date {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Education section */
+.degree h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.degree p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header .name {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  header .contact-info {
+    text-align: center;
+  }
+
+  .resume-container {
+    width: 90%;
+  }
+}
+
+/* Example of absolute positioning for a profile image (if you decide to add an image) */
+.profile-img-container {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.profile-img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

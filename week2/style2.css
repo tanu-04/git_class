@@ -1,0 +1,158 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and general styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #003366;
+    color: #333;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: white;
+    padding: 1rem;
+    color: black;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px; /* Adjust logo size */
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    font-size: 18px;
+}
+
+.nav-links a {
+    color: #003366;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background-color: white;
+    color: black;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.cta-button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+}
+
+/* Section Styles */
+.section {
+    padding: 40px 20px;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Courses Section */
+.course-list {
+    display: flex;
+    gap: 20px;
+}
+
+.course {
+    background-color: #f8f8f8;
+    padding: 20px;
+    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.course h3 {
+    font-size: 1.8rem;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.course p {
+    font-size: 1rem;
+}
+
+/* Contact Section */
+address {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+a {
+    color: #003366;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: white;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .course-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
