@@ -37,7 +37,7 @@ function squareNumber(number) {
     return percentage;
   }
   
-  // Example usage:
+ 
   squareNumber(3);
   halfNumber(5);
   percentOf(2, 4);

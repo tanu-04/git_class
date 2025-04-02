@@ -1,4 +1,4 @@
-
+ 
 function cashRegister(cart) {
     let total = 0;
     for (const item in cart) {
