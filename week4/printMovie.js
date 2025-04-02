@@ -1,4 +1,4 @@
-// The Movie Database
+
 const movie = {
     title: 'Puff the Magic Dragon',
     duration: 30,

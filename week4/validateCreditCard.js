@@ -1,4 +1,4 @@
-// Credit Card Validation
+
 function validateCreditCard(number) {
     const cleanedNumber = number.replace(/-/g, '');
     if (cleanedNumber.length !== 16 || !/^\d+$/.test(cleanedNumber)) {

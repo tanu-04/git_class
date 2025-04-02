@@ -1,4 +1,4 @@
-// The Array
+
 const choices = ['blue', 'pizza', 'javascript'];
 for (let i = 0; i < choices.length; i++) {
   let suffix;

@@ -1,4 +1,4 @@
-// The Pluralizer
+
 function pluralize(noun, number) {
     if (number === 1) {
       return `${number} ${noun}`;

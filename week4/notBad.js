@@ -1,4 +1,4 @@
-// Not Bad
+
 function notBad(str) {
     const notIndex = str.indexOf('not');
     const badIndex = str.indexOf('bad');

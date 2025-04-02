@@ -1,4 +1,4 @@
-// Simple word guessing game
+
 const word = ['F', 'O', 'X'];
 const guessedLetters = ['_', '_', '_'];
 let reward = 0;

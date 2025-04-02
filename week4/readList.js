@@ -1,4 +1,4 @@
-// The Reading List
+
 const books = [
     { title: 'The Hobbit', author: 'J.R.R. Tolkien', alreadyRead: true },
     { title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', alreadyRead: false },

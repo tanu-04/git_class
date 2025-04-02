@@ -1,4 +1,4 @@
-// Verbing
+
 function verbing(str) {
     if (str.length >= 3) {
       if (str.endsWith('ing')) {

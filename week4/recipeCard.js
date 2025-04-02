@@ -1,4 +1,4 @@
-// The Recipe Card
+
 const recipe = {
     title: 'Mole',
     servings: 2,
