@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Is it a Vowel?</title>
+</head>
+<body>
+  <script>
+    function isVowel(char) {
+      const vowels = "aeiouAEIOU";
+      return vowels.includes(char);
+    }
+
+    const inputChar = prompt("Enter a single character:");
+
+    if (inputChar !== null && inputChar.length === 1) {
+      alert(`"${inputChar}" is a vowel: ${isVowel(inputChar)}`);
+    } else {
+      alert("Invalid input. Please enter a single character.");
+    }
+  </script>
+</body>
+</html>

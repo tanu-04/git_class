@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Max of Three</title>
+</head>
+<body>
+  <script>
+    function maxOfThree(num1, num2, num3) {
+      if (num1 >= num2 && num1 >= num3) {
+        return num1;
+      } else if (num2 >= num1 && num2 >= num3) {
+        return num2;
+      } else {
+        return num3;
+      }
+    }
+
+    const num1 = parseFloat(prompt("Enter the first number:"));
+    const num2 = parseFloat(prompt("Enter the second number:"));
+    const num3 = parseFloat(prompt("Enter the third number:"));
+
+    if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+      alert(`The largest number is: ${maxOfThree(num1, num2, num3)}`);
+    } else {
+      alert("Invalid input. Please enter numbers only.");
+    }
+  </script>
+</body>
+</html>

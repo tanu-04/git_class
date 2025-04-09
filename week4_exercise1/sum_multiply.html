@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Operations</title>
+</head>
+<body>
+  <script>
+    function sum(numbers) {
+      let total = 0;
+      for (let i = 0; i < numbers.length; i++) {
+        total += numbers[i];
+      }
+      return total;
+    }
+
+    function multiply(numbers) {
+      let product = 1;
+      for (let i = 0; i < numbers.length; i++) {
+        product *= numbers[i];
+      }
+      return product;
+    }
+
+    const inputString = prompt("Enter numbers separated by commas (e.g., 1,2,3,4):");
+
+    if (inputString !== null) {
+      const numberStrings = inputString.split(',');
+      const numbers = numberStrings.map(numStr => parseFloat(numStr.trim())).filter(num => !isNaN(num));
+
+      if (numbers.length > 0) {
+        alert(`Sum: ${sum(numbers)}, Multiply: ${multiply(numbers)}`);
+      } else {
+        alert("Invalid input. Please enter numbers separated by commas.");
+      }
+    }
+  </script>
+</body>
+</html>

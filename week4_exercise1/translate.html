@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rövarspråket Translator</title>
+</head>
+<body>
+  <script>
+    function translate(text) {
+      const vowels = "aeiouAEIOU "; // Include space
+      let translated = "";
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (!vowels.includes(char)) {
+          translated += char + "o" + char.toLowerCase();
+        } else {
+          translated += char;
+        }
+      }
+      return translated;
+    }
+
+    const inputText = prompt("Enter text to translate to rövarspråket:");
+
+    if (inputText !== null) {
+      alert(`Translated text: ${translate(inputText)}`);
+    }
+  </script>
+</body>
+</html>

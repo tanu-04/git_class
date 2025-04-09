@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Longest Word Length</title>
+</head>
+<body>
+  <script>
+    function findLongestWord(words) {
+      let maxLength = 0;
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].length > maxLength) {
+          maxLength = words[i].length;
+        }
+      }
+      return maxLength;
+    }
+
+    const inputWords = prompt("Enter words separated by spaces:");
+
+    if (inputWords !== null) {
+      const wordsArray = inputWords.split(' ');
+      alert(`Length of the longest word: ${findLongestWord(wordsArray)}`);
+    }
+  </script>
+</body>
+</html>
