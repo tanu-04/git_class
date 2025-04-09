@@ -1,12 +1,20 @@
-
 const word = ['F', 'O', 'X'];
 const guessedLetters = ['_', '_', '_'];
 let reward = 0;
 const guessedAll = [];
 let hangmanState = 0;
 
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
 function guessLetter(letter) {
-  if (guessedAll.includes(letter)) return;
+  if (guessedAll.includes(letter)) {
+    console.log(`You already guessed '${letter}'.`);
+    return;
+  }
   guessedAll.push(letter);
 
   let found = false;
@@ -25,26 +33,32 @@ function guessLetter(letter) {
     console.log(`Congratulations! You found ${matches} letter(s)!`);
     console.log(`You earned $${amount * matches}.`);
   } else {
-      hangmanState++;
-      reward -= 20;
-      console.log("Wrong guess!");
+    hangmanState++;
+    reward -= 20;
+    console.log('Wrong guess!');
   }
   console.log(guessedLetters.join(''));
 
   if (!guessedLetters.includes('_')) {
     console.log('Congratulations! You guessed the word!');
     console.log(`Your final reward is $${reward}.`);
+    rl.close();
+    return;
   }
 
-  if (hangmanState >= 6){
-      console.log("You lost the game!");
-      console.log("Hangman : O--<");
+  if (hangmanState >= 6) {
+    console.log('You lost the game!');
+    console.log('Hangman : O--<');
+    rl.close();
+    return;
   }
+  askForLetter();
 }
 
-guessLetter('F');
-guessLetter('O');
-guessLetter('X');
-guessLetter('A');
-guessLetter('B');
-guessLetter('C');
+function askForLetter(){
+    rl.question('Guess a letter: ', (letter) => {
+        guessLetter(letter.toUpperCase());
+    });
+}
+
+askForLetter();
