@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Frequency</title>
+</head>
+<body>
+  <script>
+    function charFreq(str) {
+      const frequency = {};
+      for (let k = 0; k < str.length; k++) {
+        const char = str[k];
+        frequency[char] = (frequency[char] || 0) + 1;
+      }
+      return frequency;
+    }
+
+    const inputText = prompt("Enter a string to find character frequencies:");
+
+    if (inputText !== null) {
+      const frequency = charFreq(inputText);
+      alert(`Character Frequency: ${JSON.stringify(frequency)}`);
+    }
+  </script>
+</body>
+</html>

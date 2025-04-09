@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Name List</title>
+</head>
+<body>
+  <script>
+    function getNameList() {
+      const names = [];
+      while (true) {
+        const name = prompt("Enter a name (or click Cancel to finish):");
+        if (name === null) {
+          break;
+        }
+        if (name.trim() !== "") {
+          names.push(name.trim());
+        }
+      }
+      names.sort();
+      let output = "<ol>";
+      for (const n of names) {
+        output += `<li>${n}</li>`;
+      }
+      output += "</ol>";
+      document.body.innerHTML += output;
+    }
+
+    getNameList(); // Call the function when the page loads
+  </script>
+</body>
+</html>

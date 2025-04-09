@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Number Average</title>
+</head>
+<body>
+  <script>
+    function generateAndAverage() {
+      const numCount = parseInt(prompt("How many random numbers do you want to generate?"), 10);
+      if (isNaN(numCount) || numCount <= 0) {
+        alert("Please enter a valid positive number.");
+        return;
+      }
+
+      const randomNumbers = [];
+      for (let i = 0; i < numCount; i++) {
+        randomNumbers.push(Math.random()); // Numbers between 0 (inclusive) and 1 (exclusive)
+      }
+
+      let sum = 0;
+      for (const num of randomNumbers) {
+        sum += num;
+      }
+      const average = sum / numCount;
+
+      alert(`Generated numbers: ${randomNumbers.join(", ")}\nAverage: ${average}`);
+    }
+
+    generateAndAverage(); // Call the function when the page loads
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <script>
+    function calculator(num1, operator, num2) {
+      switch (operator) {
+        case '+':
+          return num1 + num2;
+        case '-':
+          return num1 - num2;
+        case '*':
+          return num1 * num2;
+        case '/':
+          if (num2 === 0) {
+            return "Error: Cannot divide by zero";
+          }
+          return num1 / num2;
+        default:
+          return "Error: Invalid operator";
+      }
+    }
+
+    const num1 = parseFloat(prompt("Enter the first number:"));
+    const operator = prompt("Enter the operator (+, -, *, /):");
+    const num2 = parseFloat(prompt("Enter the second number:"));
+
+    if (!isNaN(num1) && !isNaN(num2) && operator) {
+      const result = calculator(num1, operator, num2);
+      alert(`Result: ${result}`);
+    } else {
+      alert("Invalid input.");
+    }
+  </script>
+</body>
+</html>
