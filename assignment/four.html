@@ -1,0 +1,178 @@
+<pre>
+    Name: Tanu Shree Kumawat
+    USN: 1ms22cs151
+    Section: C
+    
+    In this assignment, I learned how different types of scope work in JavaScript, 
+    such as global scope, function scope, and block scope. I explored how function 
+    declarations, expressions, and anonymous functions are used and how lexical scope 
+    allows nested functions to access outer variables. I also understood how hoisting 
+    works, especially how `var` behaves when accessed before declaration. Through the 
+    quiz app and student evaluator, I got hands-on experience with scope isolation, 
+    function nesting, and JavaScript logic structuring.
+    </pre>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Scope Assignment</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    #output, #quiz-output {
+      margin-top: 20px; 
+      padding: 10px; 
+      border: 1px solid #ccc; 
+      border-radius: 5px; 
+      background: #f9f9f9; 
+    }
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 250px;
+    }
+    button {
+      margin-right: 10px;
+      padding: 6px 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>1. Quiz App (Function Scope, Hoisting, etc.)</h2>
+  <button onclick="startQuiz()">Start Quiz</button>
+  <button onclick="reviewScore()">Review Score (Bonus)</button>
+  <div id="quiz-output"></div>
+
+  <hr>
+
+  <h2>2. Student Activity Evaluator</h2>
+  <label for="name">Student Name:</label>
+  <input type="text" id="studentNameInput" placeholder="Enter your name" /><br>
+
+  <label for="scores">Activity Scores (comma separated):</label>
+  <input type="text" id="activityScoresInput" placeholder="e.g., 10, 20, 15, 5" /><br>
+
+  <button onclick="runStudentEvaluator()">Evaluate Activity</button>
+  <div id="output"></div>
+
+  <script>
+    // --- QUIZ APP ---
+    let score = 0; // Global score
+    let quizOutput = document.getElementById("quiz-output");
+
+    function startQuiz() {
+      quizOutput.innerHTML = "";
+      score = 0;
+      question1();
+      question2();
+      question3();
+      quizOutput.innerHTML += `<strong>Total Score:</strong> ${score}<br>`;
+    }
+
+    function question1() {
+      let answer = prompt("Question 1: What is 2 + 2?");
+      let localScore = 0;
+      if (parseInt(answer) === 4) {
+        localScore = 1;
+        score++;
+      }
+      console.log("Q1 Local Score:", localScore);
+    }
+
+    const question2 = function() {
+      let answer = prompt("Question 2: Capital of France?");
+      let localScore = 0;
+      if (answer.toLowerCase() === "paris") {
+        localScore = 1;
+        score++;
+      }
+      console.log("Q2 Local Score:", localScore);
+    }
+
+    function question3() {
+      console.log("Before declaration, category is:", category); // Hoisting demo
+      var category = "This is hoisting";
+      let answer = prompt("Question 3: JavaScript keyword for variable declaration?");
+      let localScore = 0;
+      if (["var", "let", "const"].includes(answer.toLowerCase())) {
+        localScore = 1;
+        score++;
+      }
+      console.log("Q3 Local Score:", localScore);
+    }
+
+    function reviewScore() {
+      try {
+        console.log("Trying to access localScore from outside:", localScore);
+      } catch (e) {
+        alert("Cannot access localScore from outside its function. Scope is limited!");
+      }
+    }
+
+    // --- STUDENT EVALUATOR ---
+    function runStudentEvaluator() {
+      let studentName = document.getElementById("studentNameInput").value || "Unknown";
+      let scoresText = document.getElementById("activityScoresInput").value;
+      let activityScores = scoresText.split(",").map(Number);
+
+      let outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = "";
+
+      outputDiv.innerHTML += `<strong>Student:</strong> ${studentName}<br>`;
+      outputDiv.innerHTML += `<strong>Activity Scores:</strong> [${activityScores.join(", ")}]<br>`;
+
+      // Hoisting demo
+      console.log("Before declaration, category is:", category);
+      var category = "Category set after hoisting demo.";
+
+      // Function declaration
+      function calculateTotal() {
+        let sum = 0;
+        for (let score of activityScores) {
+          sum += score;
+        }
+        return sum;
+      }
+
+      // Function expression
+      const evaluateRank = function(total) {
+        if (total > 40) return "Star Performer";
+        else if (total >= 30) return "Active";
+        else return "Inactive";
+      };
+
+      // Anonymous function
+      const calculateAverage = function() {
+        let total = calculateTotal();
+        return total / activityScores.length;
+      };
+
+      // Lexical scope example
+      function generateReport(rank) {
+        let message = "Great job on co-curriculars!";
+        function showDetails() {
+          outputDiv.innerHTML += `<strong>Report:</strong><br>Student: ${studentName}<br>Rank: ${rank}<br>Message: ${message}<br>`;
+          console.log("Report:", studentName, rank, message);
+        }
+        showDetails();
+      }
+
+      let total = calculateTotal();
+      let avg = calculateAverage();
+      let rank = evaluateRank(total);
+
+      outputDiv.innerHTML += `<strong>Total Score:</strong> ${total}<br>`;
+      outputDiv.innerHTML += `<strong>Average Score:</strong> ${avg}<br>`;
+      outputDiv.innerHTML += `<strong>Rank:</strong> ${rank}<br><br>`;
+
+      // Scope isolation
+      if (true) {
+        var testScope = "Block scoped with var";
+      }
+      outputDiv.innerHTML += `<strong>Scope Isolation Test:</strong> ${testScope}<br>`;
+
+      generateReport(rank);
+    }
+  </script>
+</body>
+</html>
