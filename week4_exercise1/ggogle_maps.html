@@ -30,15 +30,15 @@
       const hometown = document.getElementById('hometown').value;
       const currentYear = new Date().getFullYear();
       const birthYear = currentYear - age;
-      const searchEngine = "https://www.google.com/search?q="; 
       const encodedHometown = encodeURIComponent(hometown);
-      const hometownLink = `<a href="${searchEngine}${encodedHometown}" target="_blank">Search for ${hometown}</a>`;
+      const googleMapsUrl = `https://www.google.com/maps?q=${encodedHometown}`;
+      const hometownLink = `<a href="${googleMapsUrl}" target="_blank">Open ${hometown} on Google Maps</a>`;
 
       const displayDiv = document.getElementById('userInfoDisplay');
       displayDiv.innerHTML = `
         <p>Your Name: ${name}</p>
         <p>Year You Were Born (approximately): ${isNaN(birthYear) ? 'N/A' : birthYear}</p>
-        <p>Hometown: ${hometownLink}</p>
+        <p>Hometown on Google Maps: ${hometownLink}</p>
       `;
     }
   </script>
